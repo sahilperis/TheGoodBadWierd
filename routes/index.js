@@ -23,6 +23,7 @@ exports.tourSurveyForm = function(req, res){
 		/*We have all the required answers so connect to data base and update its values! 
 		David this your job--Use the model variable I have created above. . Once the DB has been updated, we simply redirect to the Home Page.
 		*/
+		connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('Tanya Gupta', true, "+who+","+source+","+length+",'d');");
 		res.redirect('/');
 	}
 };
