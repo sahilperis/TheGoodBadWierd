@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/menu/css/simple_menu.css">
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>   
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="/javascripts/tourResultsScript.js"></script>
+</head>
+<body>
+    <%-include CommonTemplate %>
+
+    <div id="container">
+        <h1>Departmental Tour Survey</h1>
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div" style="width:400; height:300"></div>
+    </div>
+
+    <script src="/javascripts/Client.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</body>
+</html>
