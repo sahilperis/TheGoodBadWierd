@@ -71,10 +71,23 @@ h4 {font-size: 1.2em; font-weight: 700}
 .heading_bg h3, 
 .heading_bg h4 {background: #FCFCFC; padding-right: 10px; display: inline-block}
 
-#footer h3 {color: #888d92}
+#footer h3 {color: #888d92
+	   
+		}
+
+
+#footer .one-fourth {
+	
+	float: left;
+        position: relative;
+	padding: 20px;
+	
+		}
+
+
 
 p {
-    padding: 10px 0;
+    padding: 10px 10px;
 	font-size: 1em;
 }
 
