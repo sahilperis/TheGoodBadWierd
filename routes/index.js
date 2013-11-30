@@ -14,12 +14,27 @@ exports.tourSurveyForm = function(req, res){
 	}else{
         connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('Tanya Gupta', true, '"+who+"', '"+source+"','"+length+"','d');");
         res.redirect('/');
-
 	}
 };
 
 exports.tourSurveyResults = function(req, res){
 	res.render('TourSurveyResults', { title: 'Surveys'});
+
+    var count = '';
+    var questions = ['ans1','ans2','ans3','ans4'];
+    var answers = ['a','b','c','d'];
+
+    for(var i = 0; i < questions.length; i++){
+        for(var j = 0; j < answer.length; j++){
+            connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+answers[j]+';', function(err, rows, fields){
+                if(err) throw err;
+                console.log('Number of people who answered '+answers[j]);
+                count = rows[0].count;
+                console.log(rows[0].count);
+            });
+        }
+    }
+
 };
 
 exports.contact = function(req, res){

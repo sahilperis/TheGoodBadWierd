@@ -53,20 +53,7 @@ connection = mysql.createConnection({
 
 connection.connect();
 connection.query('use ' + DATABASE);
-
-//gets out count of users who answered ans1
-var q = 'ans1'; //the column where we want the answer from
-var qAns = '"a"'; //the answer we want
-var count = '';
-//This query counts the number of tuples where answer is equal to 'a'
-connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('Tanya Gupta', true, 'a', 'b','c','d');");
-
-connection.query('SELECT count(*) AS count FROM user_answers WHERE '+q+'='+qAns+';', function(err, rows, fields){
-  if(err) throw err;
-  console.log('Number of people who answered '+qAns);
-  count = rows[0].count;
-  console.log(rows[0].count);
-});
+//END MYSQL
 
 //SOCKET.IO
 var io  = require('socket.io').listen(server);
@@ -84,3 +71,4 @@ io.sockets.on('connection', function (socket) {
   socket.emit('data', ServiceStatistics);
   
 });
+//END SOCKET.IO
