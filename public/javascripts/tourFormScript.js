@@ -1,49 +1,29 @@
-//test values
-var s;
-var p;
+var answers = new Array();
+function collect (){
+    $(document).ready(function(){
+        //This extracts the values out of the form according to JQuery documentation
 
-function query(){
-  var socket = io.connect();
-  console.log("trying to connect");
-  socket.on('connect', function () {
-    console.log("Connected on Client");
-
-    socket.on('data', function (data) {
-      console.log(data);
-      s = data.random;
-      p = data.random2;
-      console.log(s);
-      console.log(p);
+        var who = $('input:radio[name=who]:checked').val();
+        answers.push(who);
+        var source = $('input:radio[name=source]:checked').val();
+        answers.push(source);
+        var length = $('input:radio[name=length]:checked').val();
+        answers.push(length);
+        if(validate()===true){
+            alert("Thank you for filling the Survey! You will now be redirected to our Home Page")
+        }
     });
-  });
 }
+//move through the answers array and check if any value is undefined. If it is, prompt the user to fill in the missing answers. 
+var validate = function(){
 
-// Load the Visualization API and the piechart package.
-google.load('visualization', '1.0', {'packages':['corechart']});
-// Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawChart);
+    for (var i=0; i<answers.length; i++){
+        if(answers[i] === undefined ){
+            alert("Hey fill in all the values!")
+            return false;
 
-function drawChart() {
-  // Create the data table.
+        } //end if
+    }//end for
+    return true;
 
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Gender');
-  data.addColumn('number', 'People');
-  data.addRows([
-    ['Student', s],
-    ['Parent', p]
-  ]);
-
-  // Set chart options
-  var options = { 'title':'Gender Ratio of Prospective Students',
-                  'width':400,
-                  'height':300};
-
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-  chart.draw(data, options);
-}
-
-$(document).ready(function(){
-  query();
-});
+}//endValidateNew

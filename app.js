@@ -59,8 +59,7 @@ var q = 'ans1'; //the column where we want the answer from
 var qAns = '"a"'; //the answer we want
 var count = '';
 //This query counts the number of tuples where answer is equal to 'a'
-//connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('Tanya Gupta', true, 'b', 'b','c','d');");
-//connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('The Rock', true, 'a', 'b','c','d');");    
+connection.query("insert into user_answers (user_name, student, ans1, ans2, ans3, ans4) value('Tanya Gupta', true, 'a', 'b','c','d');");
 
 connection.query('SELECT count(*) AS count FROM user_answers WHERE '+q+'='+qAns+';', function(err, rows, fields){
   if(err) throw err;

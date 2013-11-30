@@ -14,13 +14,6 @@ function query(){
       p = data.random2;
       console.log(s);
       console.log(p);
-      /*
-      if(data.gender === "Student"){
-        s++;
-      }else{
-        p++;
-      }
-      */
     });
   });
 };
