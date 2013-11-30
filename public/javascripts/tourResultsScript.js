@@ -1,19 +1,24 @@
 //test values
-var s = 5;
-var p = 10;
+var answer1;
+var answer2;
+var answer3;
+var answer4;
 
 function query(){
-  var socket = io.connect();
+  var socket = io.connect('http://localhost');
   console.log("trying to connect");
   socket.on('connect', function () {
     console.log("Connected on Client");
 
     socket.on('data', function (data) {
-      console.log(data);
-      s = data.random;
-      p = data.random2;
-      console.log(s);
-      console.log(p);
+      answer1 = data.Answer1;
+      answer2 = data.Answer2;
+      answer3 = data.Answer3;
+      answer4 = data.Answer4;
+      console.log(answer1);
+      console.log(answer2);
+      console.log(answer3);
+      console.log(answer4);
     });
   });
 };
@@ -29,8 +34,8 @@ function drawChart() {
   data.addColumn('string', 'Gender');
   data.addColumn('number', 'People');
   data.addRows([
-    ['Male', s],
-    ['Female', p]
+    ['Male', answer1],
+    ['Female', answer2]
   ]);
 
   // Set chart options
