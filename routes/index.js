@@ -23,7 +23,7 @@ exports.tourSurveyResults = function(req, res){
 
     var questions = ['ans1','ans2','ans3','ans4'];
     var answers = ['a','b','c','d'];
-
+    /*
     //Queries the database for results
     for(var i = 0; i < questions.length; i++){
         for(var j = 0; j < answers.length; j++){
@@ -35,6 +35,7 @@ exports.tourSurveyResults = function(req, res){
             });
         }
     }
+    */
 };
 
 exports.contact = function(req, res){

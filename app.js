@@ -38,10 +38,10 @@ server.listen(app.get('port'), function(){
 });
 
 //SOCKET.IO
-io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 io.set('log level', 1);
 
-count = [0,0,0,0];  //used in route TourSurveyResults
+count = [5,10,0,0];  //used in route TourSurveyResults
 
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
@@ -53,7 +53,7 @@ io.sockets.on('connection', function (socket) {
         Answer3: count[2],
         Answer4: count[3]
     };
-    socket.emit('data', statistics);
+    socket.emit('stats', statistics);
 });
 //END SOCKET.IO
 
