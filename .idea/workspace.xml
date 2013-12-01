@@ -2,6 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="200ec3e4-c74f-482c-8ead-55785df86e42" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\index.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\asyncify\asyncify.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\asyncify\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\chainify\chainify.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\chainify\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\events.node\events.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\events.node\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\forEachAsync\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\forEachAsync\forEachAsync.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\forEachAsync\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\future\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\future\future.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\future\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\join\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\join\join.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\join\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\loop\loop.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\loop\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\sequence\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\sequence\package.json" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\node_modules\sequence\sequence.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Sean\Documents\GitHub\TheGoodBadWierd\node_modules\futures\package.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/.npmignore" afterPath="$PROJECT_DIR$/node_modules/socket.io/.npmignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/base64id/.npmignore" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/base64id/.npmignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/socket.io/node_modules/redis/.npmignore" afterPath="$PROJECT_DIR$/node_modules/socket.io/node_modules/redis/.npmignore" />
@@ -428,7 +450,7 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="20" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.23021583" vertical-offset="624" max-vertical-offset="1696">
+            <state line="40" column="0" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.038369305" vertical-offset="624" max-vertical-offset="1696">
               <folding />
             </state>
           </provider>
@@ -446,7 +468,7 @@
       <file leaf-file-name="tourResultsScript.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/tourResultsScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="832" selection-end="832" vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="896">
+            <state line="44" column="20" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="896">
               <folding />
             </state>
           </provider>
@@ -615,72 +637,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="futures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="futures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sequence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TheGoodBadWierd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="futures" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -932,20 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/tourResultsScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="832" selection-end="832" vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="896">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="1" selection-start="259" selection-end="259" vertical-scroll-proportion="0.5714286" vertical-offset="0" max-vertical-offset="392">
@@ -953,16 +895,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/futures/node_modules/sequence/README.md">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/tourResultsScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0023980816" vertical-offset="159" max-vertical-offset="656">
+        <state line="44" column="20" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="512">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="20" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.23021583" vertical-offset="624" max-vertical-offset="1696">
+        <state line="40" column="0" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.038369305" vertical-offset="624" max-vertical-offset="1696">
           <folding />
         </state>
       </provider>
