@@ -7,9 +7,9 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var mysql = require('mysql');
 
 var app = express();
-var mysql = require('mysql');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -27,6 +27,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//all routes
 app.get('/', routes.index);
 app.get('/TourSurveyForm', routes.tourSurveyForm);
 app.get('/TourSurveyResults', routes.tourSurveyResults);
@@ -41,12 +42,25 @@ server.listen(app.get('port'), function(){
 var io = require('socket.io').listen(server);
 io.set('log level', 1);
 
-count = [5,10,0,0];  //used in route TourSurveyResults
-
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
 
-    //queried from database
+    var questions = ['ans1','ans2','ans3','ans4'];
+    var answers = ['a','b','c','d'];
+    var count = [0,0,0,0];
+
+    //Queries the database for results
+    for(var i = 0; i < questions.length; i++){
+        for(var j = 0; j < answers.length; j++){
+            connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows, fields){
+                if(err) throw err;
+                console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j]);
+                count[j] = rows[0].count;
+                console.log(count[j]);
+            });
+        }
+    }
+    //Returns results from query
     var statistics = {
         Answer1: count[0],
         Answer2: count[1],
@@ -54,6 +68,7 @@ io.sockets.on('connection', function (socket) {
         Answer4: count[3]
     };
     socket.emit('stats', statistics);
+
 });
 //END SOCKET.IO
 

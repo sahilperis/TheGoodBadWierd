@@ -20,22 +20,6 @@ exports.tourSurveyForm = function(req, res){
 
 exports.tourSurveyResults = function(req, res){
 	res.render('TourSurveyResults', { title: 'Surveys'});
-
-    var questions = ['ans1','ans2','ans3','ans4'];
-    var answers = ['a','b','c','d'];
-
-    //Queries the database for results
-    for(var i = 0; i < questions.length; i++){
-        for(var j = 0; j < answers.length; j++){
-            connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows, fields){
-                if(err) throw err;
-                console.log('Number of people who answered '+answers[j]);
-                count[j] = rows[0].count;
-                console.log(rows[0].count);
-            });
-        }
-    }
-
 };
 
 exports.contact = function(req, res){
