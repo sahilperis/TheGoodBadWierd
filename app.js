@@ -8,6 +8,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var mysql = require('mysql');
+var Futures = require('futures')
 
 var app = express();
 
@@ -45,7 +46,7 @@ io.set('log level', 1);
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
 
-    var sequence = futures.sequence();
+    var sequence = Futures.sequence();
 
     var questions = ['ans1','ans2','ans3','ans4'];
     var answers = ['a','b','c','d'];
