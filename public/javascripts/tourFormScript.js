@@ -10,7 +10,7 @@ function collect (){
         var length = $('input:radio[name=length]:checked').val();
         answers.push(length);
         if(validate()===true){
-            alert("Thank you for filling the Survey! You will now be redirected to our Home Page")
+            alert("Thank you. You will now be redirected to our Home Page")
         }
     });
 }
@@ -19,9 +19,8 @@ var validate = function(){
 
     for (var i=0; i<answers.length; i++){
         if(answers[i] === undefined ){
-            alert("Hey fill in all the values!")
+            alert("Please fill out all the questions.")
             return false;
-
         } //end if
     }//end for
     return true;

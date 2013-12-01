@@ -12,29 +12,48 @@
     <div id="container">
         <h1>Departmental Tour Survey</h1>
 
-        <p>Thank you for attending a tour of the School of Computer Science!</p>
-		<p>Please help us improve this tour by giving us your feedback through this quick survey</p>
+        <p>Thank you for attending a tour of the School of Computer Science!
+           Please help us improve this tour by giving us your feedback through this quick survey. </p>
 
 		<form name="tourSurvey" onsubmit="collect()">
-			I am a:<br><br>
 
-			<input type="radio" name="who" value="a">Student<br>
-			<input type="radio" name="who" value="b">Parent<br><br>
+            <h3>Question 1</h3>
+			Are you a male or female?<br><br>
 
-			How did you find out about the tour?<br><br>
+			<input type="radio" name="who" value="a">Male<br>
+			<input type="radio" name="who" value="b">Female<br><br>
+
+            <h3>Question 2</h3>
+            How old will you be if you attend the School of Computer Science in the Fall?<br><br>
+
+            <input type="radio" name="who" value="a">18<br>
+            <input type="radio" name="who" value="b">19<br>
+            <input type="radio" name="who" value="c">20<br>
+            <input type="radio" name="who" value="d">21+<br>
+
+            <h3>Question 3</h3>
+            How did you find out about the tour?<br><br>
 
 			<input type="radio" name="source" value="a">UMASS CS Website<br>
 			<input type="radio" name="source" value="b">University Tour<br>
 			<input type="radio" name="source" value="c">Friend<br>
 			<input type="radio" name="source" value="d">Other<br><br>
 
-			How was the length of the tour?<br><br>
+            <h3>Question 4</h3>
+            How was the length of the tour?<br><br>
 
 			<input type="radio" name="length" value="a">Long<br>
-			<input type="radio" name="length" value="b">Appropriate Length<br>
+			<input type="radio" name="length" value="b">Just Right<br>
 			<input type="radio" name="length" value="c">Short<br><br>
 
-			<input type="submit" value="Submit">
+            <h3>Question 5</h3>
+            Do you think you will be attending the School of Computer Science after this tour?<br><br>
+
+            <input type="radio" name="length" value="a">Yes<br>
+            <input type="radio" name="length" value="b">No<br>
+            <input type="radio" name="length" value="c">Undecided<br><br>
+
+            <input type="submit" value="Submit">
 		</form>
     </div>
 

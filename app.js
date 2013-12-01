@@ -50,7 +50,7 @@ io.sockets.on('connection', function (socket) {
     var EventEmitter = events.EventEmitter;
     var flowController = new EventEmitter();
     flowController.on('start', function(){
-        var questions = ['ans1','ans2','ans3','ans4'];
+        var questions = ['ans1','ans2','ans3','ans4','ans5'];
         var answers = ['a','b','c','d'];
         var count = [5,5,5,5];
 
@@ -70,7 +70,7 @@ io.sockets.on('connection', function (socket) {
     flowController.on('end', function(count, i){
         //Sends results to the Client
         var statistics = {
-            QuestionNumber: i,
+            QuestionNumber: i+1,
             Answer1: count[0],
             Answer2: count[1],
             Answer3: count[2],
@@ -85,9 +85,9 @@ io.sockets.on('connection', function (socket) {
 //MYSQL
 var HOST = 'localhost';
 var PORT = 3306;
-var MYSQL_USER = 'root';           // This is the name of an admin account on your MySQL server.*
+var MYSQL_USER = 'root';         // This is the name of an admin account on your MySQL server.*
 var MYSQL_PASS = '123re45p';     // This is the password of that account.*
-var DATABASE = 'surveyappdb';      // This is the name of the database*
+var DATABASE = 'surveyappdb';    // This is the name of the database*
 
 connection = mysql.createConnection({
     host: HOST,
