@@ -64,13 +64,13 @@ io.sockets.on('connection', function (socket) {
                     console.log(count[j]);
                 });
             }
+            flowController.emit('end', count, i);
         }
-
-        flowController.emit('2', count);
     });
-    flowController.on('2', function(count){
+    flowController.on('end', function(count, i){
         //Sends results to the Client
         var statistics = {
+            QuestionNumber: i,
             Answer1: count[0],
             Answer2: count[1],
             Answer3: count[2],

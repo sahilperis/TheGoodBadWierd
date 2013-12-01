@@ -14,14 +14,18 @@
 <body>
     <%-include CommonTemplate %>
 
-    <div id="stats_ans1">
-        <h1>Departmental Tour Survey</h1>
-        <!--Div that will hold the pie chart-->
-        <div id="chart_div" style="width:400; height:300"></div>
+    <div id="container">
+        <h1>Departmental Tour Survey Results</h1>
+
+        <div id="stats_ans1">
+            <!--Divs that will hold the pie charts-->
+            <div id="chart1" style="width:400; height:300"></div>
+            <div id="chart2" style="width:400; height:300"></div>
+            <div id="chart3" style="width:400; height:300"></div>
+        </div>
+
+        <script src="/javascripts/Client.js"></script>
+        <script src="https://code.jquery.com/jquery.js"></script>
     </div>
-
-    <script src="/javascripts/Client.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-
 </body>
 </html>
