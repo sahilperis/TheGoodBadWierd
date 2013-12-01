@@ -45,21 +45,14 @@ io.set('log level', 1);
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
 
+    var sequence = futures.sequence();
+
     var questions = ['ans1','ans2','ans3','ans4'];
     var answers = ['a','b','c','d'];
-    var count = [0,0,0,0];
 
     //Queries the database for results
-    for(var i = 0; i < questions.length; i++){
-        for(var j = 0; j < answers.length; j++){
-            connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows, fields){
-                if(err) throw err;
-                console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j]);
-                count[j] = rows[0].count;
-                console.log(count[j]);
-            });
-        }
-    }
+    var count = [0,0,0,0];
+
     //Returns results from query
     var statistics = {
         Answer1: count[0],
@@ -67,8 +60,24 @@ io.sockets.on('connection', function (socket) {
         Answer3: count[2],
         Answer4: count[3]
     };
-    socket.emit('stats', statistics);
 
+    //chronological callback control flow
+    sequence
+        .then(function(count){
+            for(var i = 0; i < questions.length; i++){
+                for(var j = 0; j < answers.length; j++){
+                    connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows, fields){
+                        if(err) throw err;
+                        console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j]);
+                        count[j] = rows[0].count;
+                        console.log(count[j]);
+                    });
+                }
+            }
+        })
+        .then(function(statistics){
+            socket.emit('stats', statistics);
+        });
 });
 //END SOCKET.IO
 
