@@ -23,11 +23,14 @@ create table if not exists surveyAnswers(answer_id int AUTO_INCREMENT, qid int, 
 create table if not exists user_competed_surveys(id int, answer_id int, sid int, FOREIGN KEY(id) references users(id), FOREIGN KEY(answer_id) references surveyAnswers(answer_id), FOREIGN KEY(sid) references surveys(sid));
 create table if not exists user_surveys_in_session(id int, answer_id int, sid int, FOREIGN KEY(id) references users(id), FOREIGN KEY(answer_id) references surveyAnswers(answer_id), FOREIGN KEY(sid) references surveys(sid));
 
-create table if not exists user_answers(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(1), ans2 varchar(1), ans3 varchar(1), ans4 varchar(1), ans5 varchar(1), PRIMARY KEY(user_id));
-insert into user_answers (user_name, student, ans1, ans2, ans3, ans4, ans5) values
-('David', true, 'a', 'b','c','c','a'),
-('tom', true, 'a', 'b','c','c','a'),
-('David', true, 'a', 'b','c','c','a');
+create table if not exists departmentalTours(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(2), ans2 varchar(2), ans3 varchar(2), ans4 varchar(2), ans5 varchar(2), PRIMARY KEY(user_id));
 
-ALTER TABLE user_answers ADD COLUMN survey_ID int; 
-drop table user_answers;
+insert into departmentTours(user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'a', 'b','c','d','a'),
+('tom', true, 'a', 'b','c','d','a'),
+('David', true, 'a', 'b','c','d','a');
+
+create table if not exists classSurvey(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(2), ans2 varchar(2), ans3 varchar(2), ans4 varchar(2), ans5 varchar(2), PRIMARY KEY(user_id));
+insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'b', 'b','a','a','a'),
+('tom', true, 'a', 'c','c','a','a');
