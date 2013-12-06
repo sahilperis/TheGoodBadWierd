@@ -11,6 +11,7 @@ var events = require('events');
 var mysql = require('mysql');
 
 var app = express();
+var EventEmitter =  events.EventEmitter();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -46,48 +47,55 @@ io.set('log level', 1);
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
 
-    //Control Flow
-    var EventEmitter = events.EventEmitter;
-    var flowController = new EventEmitter();
-    flowController.on('start', function(){
+    //Sends Stats to the Client
+    function send_stats(callback){
         var questions = ['ans1','ans2','ans3','ans4','ans5'];
         var answers = ['a','b','c','d'];
-        var count = [5,5,5,5];
+        var results = new Array();
 
         //Queries the database for all results
         for(var i = 0; i < questions.length; i++){
             for(var j = 0; j < answers.length; j++){
-                connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows, fields){
+                //The callback function always executes last
+                connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows){
                     if(err) throw err;
-                    console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j]);
-                    count[j] = rows[0].count;
-                    console.log(count[j]);
+                    console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j] + ': ' + rows[0].count);
+                    results.push(rows[0].count);
+                    console.log(results.join());
+
+                    //In the case of the last callback, execute a new cascade of callbacks
+                    if(results.length === (questions.length*answers.length)){
+                        for(var k = 0; k < questions.length; k++){
+                            console.log('hi');
+                            var start_index = k*4;
+                            callback(results, start_index, k+1);
+                        }
+                    }
                 });
             }
-            flowController.emit('end', count, i);
         }
-    });
-    flowController.on('end', function(count, i){
+    }
+
+    send_stats(function(results, start_index, question_number){
         //Sends results to the Client
         var statistics = {
-            QuestionNumber: i+1,
-            Answer1: count[0],
-            Answer2: count[1],
-            Answer3: count[2],
-            Answer4: count[3]
+            QuestionNumber: question_number,
+            Answer1: results[start_index],
+            Answer2: results[start_index + 1],
+            Answer3: results[start_index + 2],
+            Answer4: results[start_index + 3]
         };
         socket.emit('stats', statistics);
     });
-    flowController.emit('start');
 });
 //END SOCKET.IO
 
 //MYSQL
 var HOST = 'localhost';
 var PORT = 3306;
-var MYSQL_USER = 'root';         // This is the name of an admin account on your MySQL server.*
-var MYSQL_PASS = '123re45p';     // This is the password of that account.*
-var DATABASE = 'surveyappdb';    // This is the name of the database*
+var MYSQL_USER = 'root';         // This is the name of an admin account on your MySQL server.
+var MYSQL_PASS = '123re45p';     // This is the password of that account.
+var DATABASE = 'surveyappdb';    // This is the name of the database
 
 connection = mysql.createConnection({
     host: HOST,

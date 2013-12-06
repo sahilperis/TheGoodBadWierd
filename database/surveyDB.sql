@@ -25,6 +25,6 @@ create table if not exists user_surveys_in_session(id int, answer_id int, sid in
 
 create table if not exists user_answers(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(1), ans2 varchar(1), ans3 varchar(1), ans4 varchar(1), ans5 varchar(1), PRIMARY KEY(user_id));
 insert into user_answers (user_name, student, ans1, ans2, ans3, ans4, ans5) values
-('David', true, 'a', 'b','c','d','a'),
-('tom', true, 'a', 'b','c','d','a'),
-('David', true, 'a', 'b','c','d','a');
+('David', true, 'a', 'b','c','c','a'),
+('tom', true, 'a', 'b','c','c','a'),
+('David', true, 'a', 'b','c','c','a');

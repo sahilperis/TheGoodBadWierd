@@ -11,6 +11,7 @@ function drawChart(question_number, answers){
     var chart_title;
     var chart_id;
 
+    //Try to find out a way to get information using WebSockets so values don't have to be hardcoded
     switch(question_number){
         case 1:
             chart_rows = ['Male', 'Female'];
@@ -60,6 +61,7 @@ function drawChart(question_number, answers){
 }
 
 function query(){
+
     var socket = io.connect();
 
     socket.on('stats', function (data) {

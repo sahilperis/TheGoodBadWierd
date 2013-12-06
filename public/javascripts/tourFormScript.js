@@ -3,12 +3,17 @@ function collect (){
     $(document).ready(function(){
         //This extracts the values out of the form according to JQuery documentation
 
-        var who = $('input:radio[name=who]:checked').val();
-        answers.push(who);
-        var source = $('input:radio[name=source]:checked').val();
-        answers.push(source);
-        var length = $('input:radio[name=length]:checked').val();
-        answers.push(length);
+        var q1 = $('input:radio[name=q1]:checked').val();
+        answers.push(q1);
+        var q2 = $('input:radio[name=q2]:checked').val();
+        answers.push(q2);
+        var q3 = $('input:radio[name=q3]:checked').val();
+        answers.push(q3);
+        var q4 = $('input:radio[name=q4]:checked').val();
+        answers.push(q4);
+        var q5 = $('input:radio[name=q5]:checked').val();
+        answers.push(q5);
+
         if(validate()===true){
             alert("Thank you. You will now be redirected to our Home Page")
         }
