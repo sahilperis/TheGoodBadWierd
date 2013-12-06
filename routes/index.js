@@ -24,6 +24,6 @@ exports.tourSurveyResults = function(req, res){
 	res.render('TourSurveyResults', { title: 'Surveys'});
 };
 
-exports.contact = function(req, res){
-	res.render('Contact', {title: 'Contact'});
+exports.login = function(req, res){
+	res.render('Login', {title: 'Login'});
 };

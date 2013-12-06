@@ -33,7 +33,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/TourSurveyForm', routes.tourSurveyForm);
 app.get('/TourSurveyResults', routes.tourSurveyResults);
-app.get('/Contact', routes.contact);
+app.get('/Login', routes.login);
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
