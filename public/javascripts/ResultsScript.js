@@ -11,31 +11,31 @@ function drawChart(question_number, answers){
     var chart_title;
     var chart_id;
 
-    //Try to find out a way to get information using WebSockets so values don't have to be hardcoded
+    //Gets the case for rendering each chart. Unfortunately only the first survey is implemented.
     switch(question_number){
         case 1:
-            chart_rows = ['Male', 'Female'];
-            chart_title = 'Gender Distribution of Prospective Students';
+            chart_rows = ['Yes','No'];
+            chart_title = 'Did you enjoy the class?';
             chart_id = 'chart1';
             break;
         case 2:
-            chart_rows = ['18','19','20','21+'];
-            chart_title = 'Age of Prospective Students';
+            chart_rows = ['5','10','15','20+'];
+            chart_title = 'How many hours did you spend studying?';
             chart_id = 'chart2';
             break;
         case 3:
-            chart_rows = ['UMass CS Website','University Tour','Friend','Other'];
-            chart_title = 'How students found out about the tour';
+            chart_rows = ['Not much','A bit','A lot'];
+            chart_title = 'How much did you learn?';
             chart_id = 'chart3';
             break;
         case 4:
-            chart_rows = ['Long','Just right','Short']
-            chart_title = 'Student perception of the length of the tour';
+            chart_rows = ['A','B','C','D or lower'];
+            chart_title = 'What grade do you expect to get?';
             chart_id = 'chart4';
             break;
         case 5:
-            chart_rows = ['Yes','No','Undecided'];
-            chart_title = 'Likelyhood of students attending the university in future';
+            chart_rows = ['Yes','Yes'];
+            chart_title = 'Is Tim Richards the coolest?';
             chart_id = 'chart5';
             break;
     }
@@ -52,8 +52,10 @@ function drawChart(question_number, answers){
 
     // Set chart options
     var options = { 'title':chart_title,
-        'width':400,
-        'height':300};
+        'width':600,
+        'height':450,
+        'is3D': true,
+        'pieHole': 0.4};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById(chart_id));
@@ -65,7 +67,7 @@ function query(){
     var socket = io.connect();
 
     socket.on('stats', function (data) {
-        console.log('Received Stats')
+        console.log('Received Stats');
 
         var question_number = data.QuestionNumber;
         var answers = [data.Answer1, data.Answer2, data.Answer3, data.Answer4];

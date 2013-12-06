@@ -31,9 +31,10 @@ if ('development' == app.get('env')) {
 
 //all routes
 app.get('/', routes.index);
-app.get('/TourSurveyForm', routes.tourSurveyForm);
-app.get('/TourSurveyResults', routes.tourSurveyResults);
 app.get('/Login', routes.login);
+app.get('/SurveyForm/:IDNum', routes.surveyForm);
+app.get('/SurveyResults/:IDNum', routes.surveyResults);
+
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
@@ -47,46 +48,45 @@ io.set('log level', 1);
 io.sockets.on('connection', function (socket) {
     console.log("Connected on server");
 
-    //Sends Stats to the Client
-    function send_stats(callback){
-        var questions = ['ans1','ans2','ans3','ans4','ans5'];
-        var answers = ['a','b','c','d'];
-        var results = new Array();
+        //Sends Stats to the Client
+        function send_stats(callback){
+            var questions = ['ans1','ans2','ans3','ans4','ans5'];
+            var answers = ['a1','a2','a3','a4'];
+            var results = new Array();
 
-        //Queries the database for all results
-        for(var i = 0; i < questions.length; i++){
-            for(var j = 0; j < answers.length; j++){
-                //The callback function always executes last
-                connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows){
-                    if(err) throw err;
-                    console.log('Number of people who answered '+ questions[i] + ' with ' + answers[j] + ': ' + rows[0].count);
-                    results.push(rows[0].count);
-                    console.log(results.join());
+            //Queries the database for all results
+            for(var i = 0; i < questions.length; i++){
+                for(var j = 0; j < answers.length; j++){
+                    //The callback function always executes last
+                    connection.query('SELECT count(*) AS count FROM user_answers WHERE '+questions[i]+'='+'"'+answers[j]+'";', function(err, rows){
+                        if(err) throw err;
+                        results.push(rows[0].count);
+                        console.log("Entries in results: " + results.join());
 
-                    //In the case of the last callback, execute a new cascade of callbacks
-                    if(results.length === (questions.length*answers.length)){
-                        for(var k = 0; k < questions.length; k++){
-                            console.log('hi');
-                            var start_index = k*4;
-                            callback(results, start_index, k+1);
+                        //In the case of the last callback, execute a new cascade of callbacks
+                        if(results.length === (questions.length*answers.length)){
+                            for(var k = 0; k < questions.length; k++){
+                                var start_index = k*4;
+                                callback(results, start_index, k+1);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
-    }
 
-    send_stats(function(results, start_index, question_number){
-        //Sends results to the Client
-        var statistics = {
-            QuestionNumber: question_number,
-            Answer1: results[start_index],
-            Answer2: results[start_index + 1],
-            Answer3: results[start_index + 2],
-            Answer4: results[start_index + 3]
-        };
-        socket.emit('stats', statistics);
-    });
+        send_stats(function(results, start_index, question_number){
+            //Sends results to the Client
+            var statistics = {
+                QuestionNumber: question_number,
+                Answer1: results[start_index],
+                Answer2: results[start_index + 1],
+                Answer3: results[start_index + 2],
+                Answer4: results[start_index + 3]
+            };
+            socket.emit('stats', statistics);
+        });
+
 });
 //END SOCKET.IO
 

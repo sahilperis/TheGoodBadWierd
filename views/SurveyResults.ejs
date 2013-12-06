@@ -5,14 +5,13 @@
       <meta charset="utf-8">
       <link rel='stylesheet' href='/stylesheets/style.css'/>
       <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/menu/css/simple_menu.css">
-      <script type="text/javascript" src="socket.io/socket.io.js"></script>
+
+      <!--socket.io-->
+      <script src="/socket.io/socket.io.js"></script>
       <script src="https://code.jquery.com/jquery.js"></script>
       <!--Load the AJAX API-->
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-      <script type="text/javascript" src="/javascripts/tourResultsScript.js"></script>
-
-      <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery.js"></script>
+      <script type="text/javascript" src="/javascripts/ResultsScript.js"></script>
 
       <!-- BOOTSTRAP -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -20,22 +19,21 @@
 
   </head>
 <body>
+
     <%-include CommonTemplate %>
 
+    <!-- generates all the necessary pie charts -->
     <div id="container">
-        <h1>Departmental Tour Survey Results</h1>
+        <div id="form0">
+            <h1 id="title"><%= title %></h1>
 
-        <div id="stats_survey1">
             <!--Divs that will hold the pie charts-->
-            <div id="chart1" style="width:400; height:300"></div>
-            <div id="chart2" style="width:400; height:300"></div>
-            <div id="chart3" style="width:400; height:300"></div>
-            <div id="chart4" style="width:400; height:300"></div>
-            <div id="chart5" style="width:400; height:300"></div>
-        </div>
+            <%for(var i = 0; i < questions.length; i++){%>
+                <div id="chart<%=i+1%>" style="width:600; height:450"></div>
+            <%}%>
 
-        <script src="/javascripts/Client.js"></script>
-        <script src="https://code.jquery.com/jquery.js"></script>
-    </div>
+        </div>
+    </div><br>
+
 </body>
 </html>
