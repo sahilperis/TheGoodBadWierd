@@ -30,5 +30,4 @@ insert into user_answers (user_name, student, ans1, ans2, ans3, ans4, ans5) valu
 ('David', true, 'a', 'b','c','c','a');
 
 ALTER TABLE user_answers ADD COLUMN survey_ID int; 
-ALTER TABLE user_answers ADD COLUMN ans5 varchar(1);
 drop table user_answers;
